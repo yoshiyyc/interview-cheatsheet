@@ -1,0 +1,64 @@
+{
+  "users": [
+    {
+      "id": 1684860881315,
+      "name": "Adam Smith",
+      "email": "adam@gmail.com",
+      "phone": "0121111111",
+      "birthday": 1009843200000,
+      "native": "false",
+      "gender": "Male",
+      "age": 21,
+      "address": "Adam's Kingdom",
+      "agreement": true
+    },
+    {
+      "id": 1684860936114,
+      "name": "Beth Baby",
+      "email": "beth@gmail.com",
+      "phone": "0222345555",
+      "birthday": 1044144000000,
+      "native": "true",
+      "gender": "Female",
+      "age": 20,
+      "address": "Baker Street",
+      "agreement": true
+    },
+    {
+      "id": 1684861030129,
+      "name": "Coco Chen",
+      "email": "coco@gmail.com",
+      "phone": "0998887744",
+      "birthday": 1078272000000,
+      "native": "true",
+      "gender": "Female",
+      "age": 19,
+      "address": "Taiwan",
+      "agreement": true
+    },
+    {
+      "id": 1684861073727,
+      "name": "Dan",
+      "email": "dan@gmail.com",
+      "phone": "0234443955",
+      "birthday": 1112572800000,
+      "native": "false",
+      "gender": "Male",
+      "age": 18,
+      "address": "Denmark",
+      "agreement": true
+    },
+    {
+      "id": 1684861141060,
+      "name": "Elephant Tim",
+      "email": "elegant@gmail.com",
+      "phone": "0111119999",
+      "birthday": 1146787200000,
+      "native": "false",
+      "gender": "Prefer not to say",
+      "age": 17,
+      "address": "Elephant's Kingdom",
+      "agreement": true
+    }
+  ]
+}
