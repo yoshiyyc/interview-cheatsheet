@@ -1,11 +1,11 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import axios from "axios";
+import moment from "moment";
 
 function Form() {
   const [date, setDate] = useState(new Date());
-  const [age, setAge] = useState(0);
 
   const {
     register,
@@ -16,7 +16,7 @@ function Form() {
       name: "",
       email: "",
       phone: "",
-      birthday: new Date().getTime(),
+      birthday: new Date(),
       native: true,
       gender: "",
       age: 0,
@@ -27,33 +27,24 @@ function Form() {
 
   const navigate = useNavigate();
 
-  const getAge = (birthday) => {
-    let today = new Date();
-    let check = new Date(birthday);
-    if (check > today) {
-      return 0;
-    } else {
-      return today.getFullYear() - birthday.getFullYear();
-    }
-  };
-
-  useEffect(() => {
-    setAge(getAge(date));
-  }, [date]);
-
   const onSubmit = async (submitData) => {
+    console.log(submitData);
     try {
       const res = await axios.post("http://localhost:3000/users", {
         id: Date.now(),
         ...submitData,
-        age: age,
-        birthday: date.getTime(),
+        birthday: date,
+        age: calcAge(date),
       });
       console.log(res);
       navigate("/list");
     } catch (error) {
       console.log(error);
     }
+  };
+
+  const calcAge = (date) => {
+    return moment().diff(date, "year");
   };
 
   return (
@@ -139,14 +130,9 @@ function Form() {
               className="form-control"
               id="birthday"
               name="birthday"
-              // defaultValue={`${date.getFullYear().toString()}-${(
-              //   date.getMonth() + 1
-              // )
-              //   .toString()
-              //   .padStart(2, 0)}-${date.getDate().toString().padStart(2, 0)}`}
               {...register("birthday", { required: "Required" })}
               onChange={(e) => {
-                setDate(new Date(e.target.value));
+                setDate(e.target.value);
               }}
             />
             {errors.birthday && (
@@ -224,7 +210,7 @@ function Form() {
               className="form-control"
               id="age"
               name="age"
-              value={age}
+              value={calcAge(date)}
               {...register("age")}
               disabled
             />
